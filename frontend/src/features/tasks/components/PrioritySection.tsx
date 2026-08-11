@@ -38,10 +38,10 @@ export const PrioritySection: React.FC = () => {
 
   return (
     <div className="mb-6">
-      <h2 className="text-xs font-bold text-amber-600 dark:text-amber-500 uppercase tracking-widest mb-3 px-1">
+      <h2 className="text-xs font-display text-warning uppercase tracking-widest mb-3 px-1">
         Top Priorities
       </h2>
-      <div className="bg-amber-50/50 dark:bg-amber-900/10 rounded-xl p-2 border border-amber-100 dark:border-amber-900/30">
+      <div className="bg-bg border-2 border-warning p-2">
         <DndContext sensors={sensors} collisionDetection={closestCenter} onDragEnd={handleDragEnd}>
           <div className="flex flex-col">
             <SortableContext items={priorities.map(t => t.id)} strategy={verticalListSortingStrategy}>

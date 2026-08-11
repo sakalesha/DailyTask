@@ -41,29 +41,29 @@ export const MorningPlanningModal: React.FC<MorningPlanningModalProps> = ({ onCo
   ];
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center bg-white/80 dark:bg-slate-900/80 backdrop-blur-md p-4 animate-in fade-in duration-300">
-      <div className="bg-white dark:bg-slate-800 rounded-3xl shadow-2xl border border-gray-100 dark:border-slate-700 max-w-md w-full p-8 animate-in fade-in zoom-in-95 duration-500">
-        <h2 className="text-3xl font-bold tracking-tight text-gray-900 dark:text-gray-100 mb-2">
+    <div className="fixed inset-0 z-50 flex items-center justify-center bg-bg/90 backdrop-blur-none p-4 transition-none">
+      <div className="bg-surface border-2 border-border max-w-md w-full p-8 transition-none rounded-none shadow-none max-h-[90vh] overflow-y-auto">
+        <h2 className="text-3xl font-display uppercase tracking-tight text-text-primary mb-2">
           Good Morning
         </h2>
-        <p className="text-gray-500 dark:text-gray-400 mb-8 font-medium">
+        <p className="text-text-muted mb-8 font-body">
           Take a moment to plan your day intentionally.
         </p>
 
         <div className="space-y-8">
           {/* Energy Section */}
           <section>
-            <h3 className="text-sm font-bold text-gray-400 uppercase tracking-widest mb-4">Energy Level</h3>
+            <h3 className="text-sm font-display text-text-muted uppercase tracking-widest mb-4">Energy Level</h3>
             <div className="grid grid-cols-3 gap-3">
               {energyOptions.map((opt) => (
                 <button
                   key={opt.value}
                   onClick={() => setEnergy(opt.value)}
                   className={twMerge(
-                    "flex flex-col items-center justify-center gap-2 p-4 rounded-2xl border-2 transition-all",
+                    "flex flex-col items-center justify-center gap-2 p-4 rounded-none border-2 transition-none",
                     energy === opt.value 
-                      ? opt.colorClass
-                      : "border-gray-100 dark:border-slate-700 text-gray-400 hover:border-gray-200 dark:hover:border-slate-600 hover:bg-gray-50 dark:hover:bg-slate-800/50"
+                      ? "border-accent text-accent bg-bg"
+                      : "border-border text-text-muted hover:border-accent hover:text-accent bg-surface"
                   )}
                 >
                   {opt.icon}
@@ -75,10 +75,10 @@ export const MorningPlanningModal: React.FC<MorningPlanningModalProps> = ({ onCo
 
           {/* Hours Section */}
           <section>
-            <h3 className="text-sm font-bold text-gray-400 uppercase tracking-widest mb-4 flex items-center gap-2">
+            <h3 className="text-sm font-display text-text-muted uppercase tracking-widest mb-4 flex items-center gap-2">
               <Clock size={16} /> Available Hours
             </h3>
-            <div className="flex items-center gap-4 bg-gray-50 dark:bg-slate-900/50 p-4 rounded-2xl border border-gray-100 dark:border-slate-700/50">
+            <div className="flex items-center gap-4 bg-bg p-4 rounded-none border-2 border-border">
               <input
                 type="range"
                 min="1"
@@ -86,22 +86,22 @@ export const MorningPlanningModal: React.FC<MorningPlanningModalProps> = ({ onCo
                 step="0.5"
                 value={hours}
                 onChange={(e) => setHours(parseFloat(e.target.value))}
-                className="flex-1 accent-blue-500 h-2 bg-gray-200 dark:bg-slate-700 rounded-lg appearance-none cursor-pointer"
+                className="flex-1 accent-accent h-2 bg-border rounded-none appearance-none cursor-pointer"
               />
-              <div className="w-16 text-center text-lg font-bold text-gray-900 dark:text-gray-100">
-                {hours} <span className="text-sm font-medium text-gray-400">h</span>
+              <div className="w-16 text-center text-lg font-data font-bold text-text-primary">
+                {hours} <span className="text-sm font-body text-text-muted">h</span>
               </div>
             </div>
           </section>
 
           {/* Note Section */}
           <section>
-            <h3 className="text-sm font-bold text-gray-400 uppercase tracking-widest mb-4">Morning Intention (Optional)</h3>
+            <h3 className="text-sm font-display text-text-muted uppercase tracking-widest mb-4">Morning Intention (Optional)</h3>
             <textarea
               value={note}
               onChange={(e) => setNote(e.target.value)}
               placeholder="What is your main focus today?"
-              className="w-full bg-gray-50 dark:bg-slate-900/50 text-gray-900 dark:text-gray-100 p-4 rounded-2xl border border-gray-100 dark:border-slate-700/50 resize-none outline-none focus:ring-2 focus:ring-blue-500/50 transition-all placeholder:text-gray-400 dark:placeholder:text-gray-600"
+              className="w-full bg-bg text-text-primary p-4 rounded-none border-2 border-border resize-none outline-none focus:border-accent transition-none placeholder:text-text-muted font-body"
               rows={2}
             />
           </section>
@@ -110,7 +110,7 @@ export const MorningPlanningModal: React.FC<MorningPlanningModalProps> = ({ onCo
         <button
           onClick={handleSubmit}
           disabled={isSubmitting}
-          className="w-full mt-10 py-4 px-6 bg-blue-600 hover:bg-blue-700 text-white rounded-xl font-bold text-lg shadow-lg shadow-blue-500/25 transition-all transform hover:scale-[1.02] active:scale-[0.98] disabled:opacity-50 disabled:hover:scale-100"
+          className="w-full mt-10 py-4 px-6 bg-accent text-bg rounded-none font-display uppercase font-bold text-lg shadow-none transition-none hover:bg-bg hover:text-text-primary hover:border-accent border-2 border-accent disabled:opacity-50"
         >
           {isSubmitting ? "Saving..." : "Start My Day"}
         </button>

@@ -1,6 +1,54 @@
 @import "tailwindcss";
 
 @theme {
-  --color-surface-elevated: #f8fafc;
-  --color-surface-dark: #0f172a;
+  /* Brutalist Theme Variables */
+  --color-bg: #0A0A0A;
+  --color-surface: #171717;
+  --color-border: #333333;
+  --color-text-primary: #F5F5F5;
+  --color-text-muted: #A3A3A3;
+  --color-accent: #FF3366;
+  
+  /* Semantic */
+  --color-success: #CCFF00;
+  --color-warning: #FFB800;
+  --color-error: #FF3366;
+  --color-info: #00E5FF;
+  
+  /* Typography */
+  --font-display: "Space Mono", monospace;
+  --font-body: "Geist", sans-serif;
+  --font-data: "Geist Mono", monospace;
+  
+  /* Spacing */
+  --spacing-2xs: 2px;
+  --spacing-xs: 4px;
+  --spacing-sm: 8px;
+  --spacing-md: 16px;
+  --spacing-lg: 24px;
+  --spacing-xl: 32px;
+  --spacing-2xl: 48px;
+  --spacing-3xl: 64px;
+  
+  /* Brutalist Radius (override Tailwind's default rounded classes) */
+  --radius-sm: 0px;
+  --radius-md: 0px;
+  --radius-lg: 0px;
+  --radius-xl: 0px;
+  --radius-2xl: 0px;
+  --radius-3xl: 0px;
+  --radius-full: 0px;
+}
+
+/* Light Theme Variables */
+@layer base {
+  .light-theme {
+    --color-bg: #FFFFFF;
+    --color-surface: #F5F5F5;
+    --color-border: #D4D4D4;
+    --color-text-primary: #0A0A0A;
+    --color-text-muted: #737373;
+    --color-accent: #E60039;
+    --color-success: #99CC00;
+  }
 }

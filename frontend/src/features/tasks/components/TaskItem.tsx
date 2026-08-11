@@ -79,9 +79,9 @@ export const TaskItem: React.FC<TaskItemProps> = ({ task }) => {
       ref={setNodeRef}
       style={style}
       className={twMerge(
-        "group flex items-center gap-1 py-2 px-1 border-b border-gray-100 dark:border-slate-700/50 transition-colors bg-white dark:bg-slate-800",
+        "group flex items-center gap-1 py-2 px-1 border-b-2 border-border transition-none bg-bg",
         task.isCompleted && "opacity-50",
-        isDragging && "shadow-lg border-transparent opacity-90 rounded-lg ring-2 ring-blue-500/50"
+        isDragging && "shadow-none border-accent opacity-100 ring-2 ring-accent bg-surface"
       )}
     >
       <button 
@@ -99,10 +99,10 @@ export const TaskItem: React.FC<TaskItemProps> = ({ task }) => {
         aria-label={task.isCompleted ? "Mark incomplete" : "Mark complete"}
       >
         <div className={twMerge(
-          "w-6 h-6 rounded-full border-2 flex items-center justify-center transition-colors",
+          "w-6 h-6 rounded-none border-2 flex items-center justify-center transition-none",
           task.isCompleted 
-            ? "bg-blue-500 border-blue-500 text-white" 
-            : "border-gray-300 dark:border-slate-600 hover:border-blue-400"
+            ? "bg-accent border-accent text-bg" 
+            : "border-border hover:border-accent"
         )}>
           {task.isCompleted && <Check size={14} strokeWidth={3} />}
         </div>
@@ -117,12 +117,12 @@ export const TaskItem: React.FC<TaskItemProps> = ({ task }) => {
             onChange={(e) => setEditTitle(e.target.value)}
             onBlur={handleSave}
             onKeyDown={handleKeyDown}
-            className="w-full bg-transparent outline-none border-b border-blue-500 py-1"
+            className="w-full bg-transparent outline-none border-b-2 border-accent py-1 font-body text-text-primary"
           />
         ) : (
           <span className={twMerge(
-            "block truncate transition-all duration-200 py-1",
-            task.isCompleted && "line-through text-gray-400 dark:text-gray-500"
+            "block truncate transition-none py-1 font-body text-text-primary",
+            task.isCompleted && "line-through text-text-muted"
           )}>
             {task.title}
           </span>
@@ -132,8 +132,8 @@ export const TaskItem: React.FC<TaskItemProps> = ({ task }) => {
       <button 
         onClick={handlePriorityToggle}
         className={twMerge(
-          "opacity-0 group-focus-within:opacity-100 group-hover:opacity-100 transition-opacity min-w-[44px] min-h-[44px] flex items-center justify-center",
-          task.isTopPriority ? "opacity-100 text-yellow-500 hover:text-yellow-600" : "text-gray-400 hover:text-yellow-500"
+          "opacity-0 group-focus-within:opacity-100 group-hover:opacity-100 transition-none min-w-[44px] min-h-[44px] flex items-center justify-center",
+          task.isTopPriority ? "opacity-100 text-warning" : "text-text-muted hover:text-warning"
         )}
         aria-label={task.isTopPriority ? "Remove priority" : "Mark as priority"}
       >
@@ -142,7 +142,7 @@ export const TaskItem: React.FC<TaskItemProps> = ({ task }) => {
 
       <button 
         onClick={handleFocus}
-        className="opacity-0 group-focus-within:opacity-100 group-hover:opacity-100 text-gray-400 hover:text-blue-500 transition-opacity min-w-[44px] min-h-[44px] flex items-center justify-center"
+        className="opacity-0 group-focus-within:opacity-100 group-hover:opacity-100 text-text-muted hover:text-accent transition-none min-w-[44px] min-h-[44px] flex items-center justify-center"
         aria-label="Focus on task"
       >
         <Target size={18} />
@@ -150,7 +150,7 @@ export const TaskItem: React.FC<TaskItemProps> = ({ task }) => {
 
       <button 
         onClick={() => taskService.deleteTask(task.id)}
-        className="opacity-0 group-focus-within:opacity-100 group-hover:opacity-100 text-gray-400 hover:text-red-500 transition-opacity min-w-[44px] min-h-[44px] flex items-center justify-center"
+        className="opacity-0 group-focus-within:opacity-100 group-hover:opacity-100 text-text-muted hover:text-error transition-none min-w-[44px] min-h-[44px] flex items-center justify-center"
         aria-label="Delete task"
       >
         <Trash2 size={18} />

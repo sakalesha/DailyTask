@@ -15,15 +15,15 @@ export const QuickAddInput: React.FC = () => {
 
   return (
     <form onSubmit={handleSubmit} className="relative flex items-center w-full mt-4 mb-6">
-      <div className="absolute left-3 text-gray-400">
-        <Plus size={20} />
+      <div className="absolute left-3 text-accent font-bold">
+        <Plus size={20} strokeWidth={3} />
       </div>
       <input
         type="text"
         value={title}
         onChange={(e) => setTitle(e.target.value)}
-        placeholder="What needs to be done today?"
-        className="w-full pl-10 pr-4 py-3 rounded-lg border border-gray-200 dark:border-slate-700 bg-gray-50 dark:bg-slate-800/50 focus:outline-none focus:ring-2 focus:ring-blue-500 transition-shadow text-gray-900 dark:text-gray-100 placeholder-gray-400"
+        placeholder="WHAT NEEDS TO BE EXECUTED?"
+        className="w-full pl-10 pr-4 py-3 rounded-none border-2 border-border bg-bg focus:outline-none focus:border-accent transition-none text-text-primary placeholder:text-text-muted font-display font-bold text-sm tracking-wide"
       />
     </form>
   );

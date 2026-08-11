@@ -13,10 +13,10 @@ export const DateHeader: React.FC = () => {
 
   return (
     <div className="flex flex-col">
-      <h1 className="text-3xl font-bold tracking-tight text-gray-900 dark:text-gray-100">
+      <h1 className="text-3xl font-display uppercase tracking-tight text-text-primary m-0">
         Today
       </h1>
-      <p className="text-gray-500 dark:text-gray-400 mt-1 font-medium">
+      <p className="text-text-muted mt-1 font-data uppercase text-xs">
         {formattedDate}
       </p>
     </div>

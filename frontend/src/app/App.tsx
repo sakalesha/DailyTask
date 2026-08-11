@@ -39,11 +39,11 @@ const App: React.FC = () => {
   const needsPlanning = !isLoadingPlan && dailyPlanArray.length === 0;
 
   return (
-    <div className="min-h-screen bg-gray-50 dark:bg-slate-900 text-gray-900 dark:text-gray-100 p-4 sm:p-8 flex justify-center font-sans">
+    <div className="min-h-screen bg-bg text-text-primary p-4 sm:p-8 flex justify-center font-body selection:bg-accent selection:text-bg">
       {focusedTaskId && <FocusPage />}
       {needsPlanning && <MorningPlanningModal onComplete={() => {}} />}
       {isNightReviewOpen && <NightReviewModal />}
-      <div className="max-w-xl w-full bg-white dark:bg-slate-800 rounded-2xl shadow-sm border border-gray-100 dark:border-slate-700/50 overflow-hidden flex flex-col">
+      <div className="max-w-[1200px] w-full bg-surface border-2 border-border overflow-hidden flex flex-col">
         {/* Dashboard Header Section */}
         <div className="p-6 sm:p-8 pb-0">
           <div className="flex justify-between items-start mb-6">
@@ -80,15 +80,15 @@ const App: React.FC = () => {
         <div className="flex-1 px-6 sm:px-8 pb-8 pt-2">
           <PrioritySection />
           
-          <h2 className="text-xs font-bold text-gray-400 uppercase tracking-widest mb-4 px-1">Other Tasks</h2>
-          <div className="bg-gray-50/50 dark:bg-slate-900/50 rounded-xl p-2 border border-gray-50 dark:border-slate-800">
+          <h2 className="text-xs font-display text-text-muted uppercase tracking-widest mb-4 px-1">Other Tasks</h2>
+          <div className="bg-bg border-2 border-border p-2">
             <TaskList />
           </div>
           
           <div className="mt-8 flex justify-center">
             <button
               onClick={() => setIsNightReviewOpen(true)}
-              className="flex items-center gap-2 px-6 py-3 bg-indigo-50 dark:bg-indigo-900/20 text-indigo-600 dark:text-indigo-400 font-semibold rounded-full border border-indigo-100 dark:border-indigo-800/50 transition-all hover:bg-indigo-100 dark:hover:bg-indigo-900/40 active:scale-95"
+              className="flex items-center gap-2 px-6 py-3 bg-surface text-text-primary font-display uppercase text-sm font-bold border-2 border-border transition-none hover:bg-bg hover:border-accent active:scale-95"
             >
               <Moon size={18} />
               Review Day
@@ -99,7 +99,7 @@ const App: React.FC = () => {
       
       {/* Toast Notification */}
       {toast && (
-        <div className="fixed bottom-6 left-1/2 -translate-x-1/2 px-4 py-2 bg-gray-900 text-white rounded-lg shadow-lg flex items-center gap-2 animate-in fade-in slide-in-from-bottom-4">
+        <div className="fixed bottom-6 left-1/2 -translate-x-1/2 px-4 py-2 bg-surface text-text-primary border-2 border-accent shadow-none flex items-center gap-2 animate-in fade-in slide-in-from-bottom-4">
           <span className="text-sm font-medium">{toast}</span>
         </div>
       )}

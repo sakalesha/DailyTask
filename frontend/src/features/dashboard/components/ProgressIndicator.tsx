@@ -11,12 +11,12 @@ export const ProgressIndicator: React.FC<ProgressIndicatorProps> = ({ total, com
   return (
     <div className="w-full mt-6 mb-2">
       <div className="flex justify-between items-end mb-2">
-        <span className="text-sm font-semibold text-gray-700 dark:text-gray-300">Daily Progress</span>
-        <span className="text-sm font-bold text-blue-500">{percentage}%</span>
+        <span className="text-sm font-display uppercase tracking-widest text-text-muted">Daily Progress</span>
+        <span className="text-sm font-data font-bold text-accent">{percentage}%</span>
       </div>
-      <div className="h-2.5 w-full bg-gray-100 dark:bg-slate-700/50 rounded-full overflow-hidden">
+      <div className="h-4 w-full bg-bg border-2 border-border overflow-hidden">
         <div 
-          className="h-full bg-blue-500 rounded-full transition-all duration-700 ease-out shadow-[0_0_10px_rgba(59,130,246,0.5)]"
+          className="h-full bg-accent transition-none"
           style={{ width: `${percentage}%` }}
         />
       </div>
